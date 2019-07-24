@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /*  Global STYLE  */
-*{ margin:0; padding:0;font-size:14px; line-height: 20px;}
+*{ margin:0; padding:0;font-size:14px; line-height: 24px;}
 html{color:#222;-webkit-text-size-adjust: none;}
 
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
@@ -23,7 +23,7 @@ a:link, a:visited {text-decoration: none; outline: none;}
 
 .clearfix:after{clear:both;display:block;content:"";height:0;line-height:0;visibility:hidden;}
 .clearfix{zoom:1;}
-
+.flexbox{display: flex; justify-content:space-around; flex-wrap: wrap;}
 .w{ width: 100%;}
 .w1200{ width: 1200px; margin:0 auto}
 
@@ -53,9 +53,10 @@ a:link, a:visited {text-decoration: none; outline: none;}
 .pubcolor{ color:#005ca1;}
 .pubbj{background: #005ca1;}
 .bjgayf5{background: #f5f5f5;}
-.boxshaow{-webkit-box-shadow: 0 2px 6px rgba(67,116,151,.25);box-shadow: 0 2px 6px rgba(67,116,151,.25);/*box-shadow: 0 0 15px #ddd;*/ /*border:1px solid #ebebeb*/}
-.imgbox-shaow{box-shadow: 0 0 15px #a4a4a4;}
 
+.borderT1{border-top: 1px solid #005ca1;}
+
+.em2{ text-indent: 2em;}
 
 /* Font */
 .fs10{font-size: 10px;}
@@ -121,8 +122,6 @@ a:link, a:visited {text-decoration: none; outline: none;}
 
 /* Padding */
 
-.pdb100{ padding-bottom: 100px;}
-
 .pd10{ padding:10px;}
 .pd25{padding: 25px;}
 
@@ -185,15 +184,21 @@ a:link, a:visited {text-decoration: none; outline: none;}
 .h150{ height: 150px;}
 
 
-/*固定导航*/
-.fixed {position: fixed;top: 0;left: 0;z-index: 200;width: 100%; box-shadow: 2px -7px 25px #888888;}
-.fixeds {position: fixed;top: 67px;left: 0;z-index: 15;width: 100%;box-shadow: 2px -7px 25px #888888;}
-.marginbs{margin-top: -30px;}
 /* Background */
 .bgmain{ background:#005ca1; color:#fff;}
 .bgred{ padding: 0 3px; background-color: #FA322B;color: #fff;}
 .bggreen{ padding: 0 3px; background-color: #00AF4B;color: #fff;}
 .bggray{ padding: 0 3px; background-color: #8b8b8b;color: #fff;}
 .bgwhite{background-color: #fff;}
+
+
+/* 页码 */
+.all-pages{ clear:both; margin:0 -2px 0 0; padding:30px 0; text-align:center;}
+.all-pages a,.all-pages span{ display:inline-block; margin:0 5px; padding:0 14px; height:32px; vertical-align:middle; white-space:nowrap; text-align:center; font-size:14px; line-height:32px; color:#333; font-family:arial; background:#fff; border:1px solid #e6e6e6; border-radius: 3px;}
+.all-pages a:hover{border:1px solid #005ca1; color:#333;}
+.all-pages .current{ background:#005ca1; color:#fff; border:1px solid #005ca1;}
+.all-pages .next{padding: 0 25px 0 12px;background: #fff url(../images/ibar_sprites.png) no-repeat 62px -462px;}
+.all-pages .prev, .all-pages .no-prev {padding: 0 12px 0 25px;background: #fff url(../images/ibar_sprites.png) no-repeat 10px -440px;}
+
 
 

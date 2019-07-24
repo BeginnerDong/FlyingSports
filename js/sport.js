@@ -13,15 +13,30 @@
 
 	$("#banner").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPlay: true, autoPage: true, trigger: "mouseover" });
  
+		var swiper = new Swiper('.swiper-container', {
+			slidesPerView: 5,
+			spaceBetween: 30,
+		centeredSlides: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+		});
 
-    var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 5,
-      spaceBetween: 30,
-	  centeredSlides: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+		// mobile端点击按钮显示导航
+		$(".indNavbar .navBtn").click(function(){
+			if($(".indNavbar .list").css('display')=='none'){
+				$(".indNavbar .list").show()
+			}else{
+				$(".indNavbar .list").hide()
+			}
+		});
+
+		// 列表左侧导航
+		$(".main-leftNav .selnav a").click(function(){
+			$(this).addClass("on").siblings().removeClass("on")
+		})
+
+
 }); 
 
