@@ -1,29 +1,126 @@
-
-	<div class="wapBanner" id="banner">
-		<div class="sec-banner" >
-			<div class="hd">
-				<ul>
-					<li class="on">1</li>
-					<li>2</li>
-					<li>3</li>
-				</ul>
+<div id="banner_app" style="height: 100%;width: 100%;overflow: hidden;">
+	<div class="banner clearfix" v-for="(item,index) in bannerData" v-show="index==banner_index">
+		<img style="width: 100%;height: 100%" :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''"/>
+		<div  class="banner-item" >
+			<!-- <div  class="animated bounceInLeft banner-mainTitle">
+				<div  class="banner-title" >{{item.title}}</div>
+				<div  class="banner-small-title">{{item.small_title}}</div>
+			</div> -->
+			<div  class="animated bounceInRight banner-imgIcon">					
+				<img :src="item.iconUrl" />	
+			</div>	
+			<div style="position: absolute;right:20px;top:50%;z-index:999;cursor: pointer" @click="changeBanner('+')">
+				<img src="images/icon-right.png" />
 			</div>
-			<div class="bd">
-				<ul style="background:#fff;">
-					<li><img src="images/home-banner.jpg"></li>
-					<li><img src="images/home-banner.jpg"></li>
-					<li><img src="images/home-banner.jpg"></li>
-				</ul>
+			<div style="position: absolute;left:20px;top:50%;z-index:999;cursor: pointer" @click="changeBanner('-')">
+				<img src="images/icon-left.png" />
 			</div>
-		</div>
+		</div>	
 	</div>
+</div>
 
-	<script src="js/jquery.sslide.js" type="text/javascript"></script>
-	<script type="text/javascript">
-	// 网站banner
-		$(function(){
-			$("#banner").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPlay: true, autoPage: true, trigger: "mouseover" });
-		})
 
-	</script>
+<script type="text/javascript">
+	var banner_app = new Vue({
+	    el: '#banner_app',
+	    data:function(){
+	        return {
+	        	banner_index:0,
+	        	is_toggle:false,
+				is_show:false,
+				bannerData:[],
+				searchItem:{
+					thirdapp_id:window.base.thirdapp_id,
+					title:''
+				},
+				herfIndex:{
+					'/index.html':'首页轮播',
+					'/ceeSport.html':'高考体育轮播',
+					'/midteSport.html':'中考体育轮播',
+					'/aboutAx.html':'关于翱翔轮播',
+					'/canteraList.html':'青训轮播',
+					'/sportsEvtsList.html':'体育赛事承办轮播',
+					'/activityList.html':'活动中心轮播',
+					'/contactUs.html':'联系我们轮播',
+					'/excellentList.html':'优秀学员轮播',
+				}
+	        }
+	    },
+	    created:function () {
+	        var self = this;
+	        var currentUrl = window.base.GetUrlRelativePath();
+		
+			var reg = /\/([^\/]+)\.html/i;
+			if(reg.exec(currentUrl)&&reg.exec(currentUrl)[0]){
+				self.currentUrl = reg.exec(currentUrl)[0];
+			}else{
+				self.currentUrl = '/index.html';
+			};
+			self.searchItem.title = self.herfIndex[self.currentUrl];
 
+			//window.base.bus.$emit('from_headBanner',{});
+    		window.base.bus.$on('to_headBanner',(res)=>{	
+	        	this.to_headBanner(res);
+		    });
+			self.getMainData()	
+	    },
+	    methods: {
+	    	to_headBanner:function(){
+
+	    	},
+
+
+	    	getMainData: function(id){
+			    var self = this;
+			    var postData = {};
+			    postData.searchItem = window.base.cloneForm(self.searchItem);
+				postData.getAfter = {
+					child: {
+						tableName: 'Label',
+						middleKey: 'id',
+						key: 'parentid',
+						searchItem: {
+							status: 1,
+						},
+						condition: '='
+					},
+				};
+			    var callback = function(res){
+			        if(res.info.data.length>0&&res.info.data[0]['child']){
+						self.bannerData =res.info.data[0]['child'];
+						console.log('self.bannerData',self.bannerData)
+			        };    
+			    };
+			    window.base.labelGet(postData, callback);
+			},
+	        
+	    	changeBanner: function(type) {
+	    		var self = this;
+	    		if(type=='+'){
+	    			console.log(8852)
+	    			self.banner_index += 1;
+	    		}else if((type=='-')){
+	    			self.banner_index -= 1;
+	    		};
+	    		console.log(self.banner_index);
+	    		if(self.banner_index<0){
+	    			self.banner_index = self.bannerData.length-1
+	    		};
+	    		if(self.banner_index==self.bannerData.length){
+	    			self.banner_index = 0
+	    		};	
+	    		
+	    	},
+			
+			intoPath:function(url,id){
+			    var self = this;
+			    var toUrl = url;
+			    console.log(toUrl);
+			    window.location.href= toUrl+'?id='+id;
+			
+			},
+
+			
+	    }
+	});
+</script>

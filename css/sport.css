@@ -115,20 +115,23 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 .about-dvlptlis li .tex{ font-size: 18px;line-height: 30px;}
 
 /*师资力量*/
-.about-faculylis ul{width:90%; margin: 0 auto; display: flex;justify-content: space-around;flex-wrap: nowrap;}
-.about-faculylis li{ width: 18%; padding-top: 100px; position: relative;}
-.about-faculylis li:nth-child(3){ width: 28%;margin-top: -100px;}
-.about-faculylis li:nth-child(3) .texbox{ display: block;}
-.about-faculylis li .photo{ width: 90%; height:auto; margin: 0 auto;}
-.about-faculylis li .texbox{ width: 100%; box-sizing:border-box; padding: 20px 10px; background: #005ca1; margin-top: -40px;position: relative;z-index: 6; color: #fff; display: none;}
-.about-faculylis li .texbox .name{font-size: 20px; padding-bottom: 10px; line-height: 24px; border-bottom: 1px solid #4587b9; margin-bottom: 10px;}
-.about-faculylis li .texbox .name em{ float: right; font-size:14px; line-height: 24px; height: 24px; overflow: hidden;text-overflow:ellipsis; white-space: nowrap;}
-.about-faculylis li .texbox .intro{ font-size: 14px; line-height: 26px; height: 52px; overflow:hidden;text-overflow: ellipsis;-webkit-box-orient:vertical;display: -webkit-box; -webkit-line-clamp:2; margin-bottom: 15px; }
-.about-faculylis li .texbox .mrBtn{ width: 100px; height: 36px; line-height: 36px; border-radius: 5px; border:1px solid #eee; color: #fff; text-align: center; display: block; margin: 0 auto;font-size: 18px;}
+.about-faculylis .ul_div{ margin: 0 auto; display: flex;flex-wrap: nowrap;position: relative;height: 600px}
+.li_div{ width: 175px; padding-top: 100px; transition: left 2s;position: absolute;top: 0;
+-moz-transition: left 2s; /* Firefox 4 */
+-webkit-transition: left 2s; /* Safari 和 Chrome */
+-o-transition: left 2s;}
+/* .about-faculylis li:nth-child(3){ width: 28%;margin-top: -100px;}
+.about-faculylis li:nth-child(3) .texbox{ display: block;} */
+.about-faculylis .li_div .photo{ width: 90%; height:auto; margin: 0 auto;}
+.about-faculylis .li_div .texbox{ width: 100%; box-sizing:border-box; padding: 20px 10px; background: #005ca1; margin-top: -40px;position: relative;z-index: 6; color: #fff; display: none;}
+.about-faculylis .li_div .texbox .name{font-size: 20px; padding-bottom: 10px; line-height: 24px; border-bottom: 1px solid #4587b9; margin-bottom: 10px;}
+.about-faculylis .li_div .texbox .name em{ float: right; font-size:14px; line-height: 24px; height: 24px; overflow: hidden;text-overflow:ellipsis; white-space: nowrap;}
+.about-faculylis .li_div .texbox .intro{ font-size: 14px; line-height: 26px; height: 52px; overflow:hidden;text-overflow: ellipsis;-webkit-box-orient:vertical;display: -webkit-box; -webkit-line-clamp:2; margin-bottom: 15px; }
+.about-faculylis .li_div .texbox .mrBtn{ width: 100px; height: 36px; line-height: 36px; border-radius: 5px; border:1px solid #eee; color: #fff; text-align: center; display: block; margin: 0 auto;font-size: 18px;}
 
-.about-faculylis li .texbox .mrBtn:hover{ background: #fff; border-color: #fff; color: #005ca1;}
-.about-faculylis .arrowBtn{ position: absolute; width: 100%; top: 40%;z-index: 3;left: 0;}
-.about-faculylis .arrowBtn .btn{width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; background: #b5b5b6; color: #fff; font-size: 30px; cursor: pointer; }
+.about-faculylis .li_div .texbox .mrBtn:hover{ background: #fff; border-color: #fff; color: #005ca1;}
+.about-faculylis .arrowBtn{ z-index:999;position: absolute; width: 100%; top: 40%;z-index: 3;left: 0;}
+.about-faculylis .arrowBtn .btn{z-index:999;width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; background: #b5b5b6; color: #fff; font-size: 30px; cursor: pointer; }
 
 /******************  关于翱翔 end ********************/
 

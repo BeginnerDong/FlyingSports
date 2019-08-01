@@ -1,86 +1,224 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<title>联系我们</title>
-<link type="text/css" rel="stylesheet" href="css/public.css">
-<link rel="stylesheet" type="text/css" href="css/sport.css">
-<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="font/iconfont.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/include.js"></script>
-<script src="js/jquery.sslide.js"></script>
-<script src="js/swiper.min.js"></script>
-<script type="text/javascript" src="js/sport.js"></script>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<title>联系我们</title>
+		<link type="text/css" rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" type="text/css" href="css/sport.css">
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/include.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	</head>
 
-<body>
-
-	<!-- 网站导航 -->
-	<include src="header.html"></include>
-	
-	<!-- 网站banner -->
-	<include src="headBanner.html"></include>
-
-
-	<div class="contTactUs">
-		<div class="w1200">
-			<div class="pubTitle center">
-				<h1 class="fs30 mgb20">联系我们</h1>
-				<p class="fs20 gray6">contact us</p>
+	<body>
+		<div id="app">
+			<!-- 网站导航 -->
+			<include src="header.html"></include>
+			
+			<!-- 网站banner -->
+			<div style="width:100%;height: 70%">
+				<include src="headBanner.html"></include>
 			</div>
+			<div class="contTactUs">
+				<div class="w1200">
+					<div class="pubTitle center">
+						<h1 class="fs30 mgb20">联系我们</h1>
+						<p class="fs20 gray6">contact us</p>
+					</div>
 
-			<div class="call_adds flexbox">
-				<span class="lis center"><img class="icon" src="images/contact-icon1.png">陕西省西安市雁塔区科技路</span>
-				<span class="lis center"><img class="icon" src="images/contact-icon2.png">029-8980-2349</span>
+					<div class="call_adds flexbox">
+						<span class="lis center"><img class="icon" src="images/contact-icon1.png">{{address}}</span>
+						<span class="lis center"><img class="icon" src="images/contact-icon2.png">{{phone}}</span>
+					</div>
+					<div class="writeMsgbox">
+						<form action="">
+							<ul class="flexbox w pdb100">
+								<li>
+									<p>姓名：</p>
+									<input v-model="submitInfo.name" type="text" placeholder="请输入姓名" name="name">
+								</li>
+								<li>
+									<p>电话：</p>
+									<input v-model="submitInfo.phone" type="text" name="tellphone" placeholder="请输入联系电话">
+								</li>
+								<li>
+									<p>学校名称：</p>
+									<input v-model="submitInfo.shoolname" type="text" name="shoolname" placeholder="请输入学校名称">
+								</li>
+								<li>
+									<p>联系QQ：</p>
+									<input v-model="submitInfo.qq" type="text" name="qq" placeholder="请输入联系QQ">
+								</li>
+							</ul>
+						</form>
+		          		<div><button type="submint" class="okBtn center white pubbj fs20 mg0" @click="submit">提交</button></div>
+		        	</div>
+				</div>
+				<div class="bjgayf5 pdb100">
+					<div class="pubTitle center">
+						<h1 class="fs30 mgb20">诚聘英才</h1>
+						<p class="fs20 gray6">talented people</p>
+					</div>
+
+					<div class="joinUsBox w1200 oh">
+						<img class="l-Pic fl" :src="诚聘英才.mainImg&&诚聘英才.mainImg[0]?诚聘英才.mainImg[0].url:''">
+						<p class="r-tex fs16 line40 fr pdt30">{{诚聘英才['description']}}</p>
+					</div>
+
+				</div>
 			</div>
-			<div class="writeMsgbox">
-				<form action="">
-					<ul class="flexbox w pdb100">
-						<li>
-							<p>姓名：</p>
-							<input type="text" placeholder="请输入姓名" name="name">
-						</li>
-						<li>
-							<p>电话：</p>
-							<input type="text" name="tellphone" placeholder="请输入联系电话">
-						</li>
-						<li>
-							<p>学校名称：</p>
-							<input type="text" name="shoolname" placeholder="请输入学校名称">
-						</li>
-						<li>
-							<p>联系QQ：</p>
-							<input type="text" name="tellphone" placeholder="请输入联系QQ">
-						</li>
-					</ul>
-				</form>
-          		<div><button type="submint" class="okBtn center white pubbj fs20 mg0">提交</button></div>
-        	</div>
+			
+
+			<!-- 页脚 -->
+			<include src="footer.html"></include>
 		</div>
-		<div class="bjgayf5 pdb100">
-			<div class="pubTitle center">
-				<h1 class="fs30 mgb20">诚聘英才</h1>
-				<p class="fs20 gray6">talented people</p>
-			</div>
+		
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+		    el: '#app',
+		    data:function(){
+		        return {
+		        	banner_index:0,
+		        	is_toggle:false,
+					is_show:false,
+					
+					wx_show:2,
+					mainData: [],
+					labelData: [],
+					newsData:[],
+					paginate: { 
+					    count: 0, 
+					    currentPage: 1, 
+					    pagesize:6, 
+					    is_page: true, 
+					},
+					searchItem:{ 
+						thirdapp_id: 2,
+						title:['in',['联系我们轮播','诚聘英才','联系我们']]
+					},
+					联系我们轮播:[],
+					联系我们:[],
+					诚聘英才:{},
+					e_data:[],
+					i_data:[],
+					address:'',
+					phone:'',
+					submitInfo:{
+						name:'',
+						phone:'',
+						shoolname:'',
+						qq:''					}
 
-			<div class="joinUsBox w1200 oh">
-				<img class="l-Pic fl" src="images/contact-icon3.png">
-				<p class="r-tex fs16 line40 fr pdt30">人们越来越清楚地认识到体育是提高人的生命和生活质量的重要基础与保证，体育在现代社会中的独特作用和重要性日益突出。体育课程作为素质教育重要组成部分的性质也越来越鲜明。1999年6月，《中共中央国务院关于深化教育改革全面推进素质教育的决定》指出：“实施素质教育，必须把德育、智育、体育、美育等有机地统一在教育活动的各个环节中。学校教育不仅要抓好智育，还要加强体育、美育、劳动技术教育和社会实践，使诸方面的教育相互渗透、协调发展，促进学生全面发展和健康成长。”这个决定表明了体育作为素质教育重要内容和途径的意义，同时也指出了学校体育的根本目的，规定了体育与课程的性质。</p>
-			</div>
+		        }
+		    },
+		    created:function () {
+		        var self = this;
+				self.getMainData()
+		    },
+		    methods: {
+		        
+				getMainData: function(id){
+				    var self = this;
+				    var postData = {};
+				    //postData.paginate = window.base.cloneForm(self.paginate);
+				    postData.searchItem = window.base.cloneForm(self.searchItem);
+					/*postData.getBefore ={
+					 	caseData:{
+							tableName:'Label',
+							searchItem:{
+							  parentid:['in',[146]]
+							},
+							middleKey:'menu_id',
+							key:'id',
+							condition:'in',
+						},
+					};*/
 
-		</div>
-	</div>
-	
+					postData.getAfter = {
+						child: {
+							tableName: 'Label',
+							middleKey: 'id',
+							key: 'parentid',
+							searchItem: {
+								status: 1,
+							},
+							condition: '='
+						},
+					};
+				    var callback = function(res){
+				        console.log('getMainData', res);
+				        self.mainData.push.apply(self.mainData,res.info.data);
+				        for (var i = 0; i < self.mainData.length; i++) {
+				        	self[self.mainData[i].title] = self.mainData[i];
+				        	if(self.mainData[i].title=='联系我们'){
+				        		for (var j = self.mainData[i]['child'].length - 1; j >= 0; j--) {
+									if(self.mainData[i]['child'][j].title=="地址"){
+										self.address = self.mainData[i]['child'][j]['description']
+									};
+									if(self.mainData[i]['child'][j].title=="电话"){
+										self.phone = self.mainData[i]['child'][j]['description']
+									};	
+								}
+				        	}
+				        };
+				    };
+					console.log('self.mainData',self.mainData)
+				    window.base.labelGet(postData, callback);
+				},
+				
+				getNewsData: function(id){
+				    var self = this;
+				    var postData = {};
+				    postData.paginate = window.base.cloneForm(self.paginate);
+				    postData.searchItem = {
+				    	thirdapp_id:2,
+				    	menu_id:['in',[self['企业动态'].id,self['行业动态'].id]]
+				    };
+				    
+				    var callback = function(res) {
+				        
+				        self.newsData.push.apply(self.newsData,res.info.data)
+						for (var i = 0; i < self.newsData.length; i++) {
+							if(self.newsData[i].menu_id==self['企业动态'].id){
+								self.e_data.push(self.newsData[i]);
+							}else{
+								self.i_data.push(self.newsData[i]);
+							}
+						};
+						console.log('self.e_data',self.e_data)
+				    };
+				    window.base.articleList(postData, callback);
+				},
 
-	<!-- 页脚 -->
-	<include src="footer.html"></include>
-
- 
-</body>
+				submit:function(){
+					var self = this;
+					console.log('self.submitInfo',self.submitInfo);
+		    		/*if(!self.subInfo.name||!self.subInfo.phone){
+		    			alert('请填写姓名和电话');
+		    			return;
+		    		};*/
+		    		var postData = {
+		    			data:self.submitInfo
+		    		};
+		    		var callback = function(res){
+		    			if(res.solely_code==100000){
+		    				alert('提交成功')
+		    			}else{
+		    				alert('提交失败')
+		    			}
+		    		};
+		    		window.base.JustaddMessage(postData,callback);
+				}
+		    }
+		});
+	</script>
 </html>

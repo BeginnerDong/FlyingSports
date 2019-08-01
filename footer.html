@@ -1,24 +1,86 @@
-	<footer class="oh footer">
-		<div class="w1200">
-			<div class="linkNav center">
-				<a href="aboutAx.html">关于翱翔</a>
-				<a href="ceeSport.html">高考体育</a>
-				<a href="midteSport.html">中考体育</a>
-				<a href="canteraList.html">青训</a>
-				<a href="sportsEvtsList.html">体育赛事承办</a>
-				<a href="activityList.html">活动中心</a>
-				<a href="contactUs.html">联系我们</a>
+<footer class="oh footer">
+	<div class="w1200" id="footer_app">
+		<div class="linkNav center">
+			<a href="aboutAx.html">关于翱翔</a>
+			<a href="ceeSport.html">高考体育</a>
+			<a href="midteSport.html">中考体育</a>
+			<a href="canteraList.html">青训</a>
+			<a href="sportsEvtsList.html">体育赛事承办</a>
+			<a href="activityList.html">活动中心</a>
+			<a href="contactUs.html">联系我们</a>
+		</div>
+		<div class="underCnt oh">
+			<img class="logo fl" src="images/logo-wzi.png">
+			<div class="phone fl">
+				<div><i class="iconfont">&#xe6ad;</i><em>{{phone}}</em></div>
+				<div><i class="iconfont">&#xe71f;</i><em>{{address}}</em></div>
 			</div>
-			<div class="underCnt oh">
-				<img class="logo fl" src="images/logo-wzi.png">
-				<div class="phone fl">
-					<div><i class="iconfont">&#xe6ad;</i><em>029-8678-9820</em></div>
-					<div><i class="iconfont">&#xe71f;</i><em>陕西省西安市雁塔区科技路</em></div>
-				</div>
-				<div class="ewmBox fr center">
-					<div class="lis"><img src="images/home-img7.jpg"><p>客服二维码</p></div>
-					<div class="lis"><img src="images/home-img7.jpg"><p>客服二维码</p></div>
-				</div>
+			<div class="ewmBox fr center">
+				<div class="lis" v-for="item in qrImg"><img :src="item.url"><p>客服二维码</p></div>	
 			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
+<script type="text/javascript">
+
+	var footer_app = new Vue({
+	    el: '#footer_app',
+	    data:function(){
+	        return {
+	        	is_toggle:false,
+				qrImg:[],
+				address:'',
+				phone:''
+	        }
+	    },
+	    created:function () {
+	        var self = this;
+			self.getMainData()
+	        
+			
+	    },
+	    methods: {
+			
+			getMainData: function(id) {
+				var self = this;
+				var postData = {};
+				postData.searchItem = {
+					thirdapp_id:2,
+					title:'联系我们'
+				};
+				postData.getAfter = {
+					child: {
+						tableName: 'Label',
+						middleKey: 'id',
+						key: 'parentid',
+						searchItem: {
+							status: 1,
+						},
+						condition: '='
+					},
+				};
+
+				var callback = (res) => {
+					console.log('getMainData', res);
+					self.mainData = res.info.data[0];
+					for (var i = self.mainData['child'].length - 1; i >= 0; i--) {
+						
+						if(self.mainData['child'][i].title=="地址"){
+							self.address = self.mainData['child'][i].description
+						};
+						if(self.mainData['child'][i].title=="电话"){
+							self.phone = self.mainData['child'][i].description
+						};
+						if(self.mainData['child'][i].title=="二维码"){
+							self.qrImg = self.mainData['child'][i].mainImg
+						};
+					}
+
+				};
+				window.base.labelGet(postData, callback);
+			},
+	        
+	    	
+	    }
+	});   
+</script>

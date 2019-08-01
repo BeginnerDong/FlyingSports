@@ -1,48 +1,165 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<title>教师资料</title>
-<link type="text/css" rel="stylesheet" href="css/public.css">
-<link rel="stylesheet" type="text/css" href="css/sport.css">
-<link rel="stylesheet" type="text/css" href="font/iconfont.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/include.js"></script>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<title>教师资料</title>
+		<link type="text/css" rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" type="text/css" href="css/sport.css">
+		<link rel="stylesheet" type="text/css" href="css/wxParse.css">
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+		<script src="./js/vue.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/include.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	</head>
 
-<body>
-<!-- 网站导航 -->
-<include src="header.html"></include>
-<!-- 网站导航 end -->
+	<body>
+		<div id="app">
+			<!-- 网站导航 -->
+			<include src="header.html"></include>
+			<!-- 网站导航 end -->
 
 
-	<div class="teachersCont pdb100">
-		<div class="tcbj"></div>
-		<div class="w1200">
-			<div class="tcPhotobox oh pdb100">
-				<img class="l-pic fl" src="images/about-img2.jpg">
-				<div class="r-infor fl">
-					<h1 class="name">任芳</h1>
-					<p class="title">教师</p>
+			<div class="teachersCont pdb100">
+				<div class="tcbj"></div>
+				<div class="w1200">
+					<div class="tcPhotobox oh pdb100">
+						<img class="l-pic fl" src="images/about-img2.jpg">
+						<div class="r-infor fl">
+							<h1 class="name">{{mainData.title}}</h1>
+							<p class="title">教师</p>
+						</div>
+					</div>
+					<div class="content ql-editor " style="clear: both;">
+						<div class="inforCont pdb100" v-html="mainData.content">
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="teacherIntro">
-				<p>任芳，1972年1月出生，重庆江津人，中国民主促进会会员，教授、正高级审计师。现任西京学员院长，全国政协委员，全国青联十二届全委会常委、民进陕西省副主委，中国民办教育协会副会长。</p>
-				<p>在多年半血实践中，任芳同志始终坚持公益性办学方向，坚持以改革创新景晨推动工作，提出西京学员“二次创业，建设高水平大学”的奋斗目标，并积极推进育人模式改革，抓重点，抓特色，抓基础，为学校全面发展做出突出贡献。她先后主持完成重大科研项目8项，省级教育教学重点项目3项，其中，主持的《民办高校教师发展模式创新与实践》获2017年陕西省教学成果一等奖，在多年半血实践中，任芳同志始终坚持公益性办学方向，坚持以改革创新景晨推动工作，提出西京学员“二次创业，建设高水平大学”的奋斗目标，并积极推进育人模式改革，抓重点，抓特色，抓基础，为学校全面发展做出突出贡献。</p>
-				<p>任芳，全国青联十二届全委会常委、民进陕西省副主委，中国民办教育协会副会长。在多年半血实践中，任芳同志始终坚持公益性办学方向，坚持以改革创新景晨推动工作，提出西京学员“二次创业，建设高水平大学”的奋斗目标，并积极推进育人模式改革，抓重点，抓特色，抓基础，为学校全面发展做出突出贡献。她先后主持完成重大科研项目8项，省级教育教学重点项目3项，其中，主持的《民办高校教师发展模式创新与实践》获2017年陕西省教学成果一等奖，在多年半血实践中</p>
-			</div>
+
+			<!-- 页脚 -->
+			<include src="footer.html"></include>
 		</div>
-		
-	</div>
 
-<!-- 页脚 -->
-	<include src="footer.html"></include>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data() {
+				return {
+					banner_index: 0,
+					is_toggle: true,
+					is_show:false,
+					wx_show:2,
+					mainData:{},
 
- 
-</body>
+					searchItem: {
+						thirdapp_id: 2
+					},
+					banner_info: [{
+							url: 'images/banner.png',
+							title: '更专注于行业特色 贴合用户使用习惯',
+							small_title: '更专注于行业特色 贴合用户使用习惯'
+						},
+						{
+							url: 'images/2-banner.png',
+							title: '',
+							small_title: ''
+						}
+					]
+				}
+			},
+			created() {
+				const self = this;
+				self.init()
+			},
+
+			methods: {
+				init: function(e) {
+					const self = this;
+					console.log(666);
+					console.log(self.banner_info);
+					self.getMainData();
+				},
+
+				getMainData: function(id) {
+					var self = this;
+					var postData = {};
+					postData.searchItem = window.base.cloneForm(self.searchItem);
+					postData.searchItem.id = window.base.GetRequest().id;
+
+					var callback = (res) => {
+						console.log('getMainData', res);
+						self.mainData = res.info.data[0]
+
+					};
+					window.base.articleList(postData, callback);
+				},
+
+
+				changeBanner: function(type) {
+					const self = this;
+
+					if (type == '+') {
+						console.log(8852)
+						self.banner_index += 1;
+					} else if ((type == '-')) {
+						self.banner_index -= 1;
+					};
+					console.log(self.banner_index);
+					if (self.banner_index < 0) {
+						self.banner_index = self.banner_info.length - 1
+					};
+					if (self.banner_index == self.banner_info.length) {
+						self.banner_index = 0
+					};
+					console.log(self.banner_index);
+
+				},
+				
+							
+				phoneMarketing:function(index){
+					const self = this;
+					if(index==self.wx_show){
+						self.wx_show =2
+					}else{
+						self.wx_show =index
+					}
+					
+					console.log('self.wx_show',self.wx_show)
+				},
+				
+				
+				consult: function(e) {
+					var self = this;
+					self.is_show = !self.is_show;
+				},
+				mask: function(e) {
+					var self = this;
+					self.is_show = false;
+				},
+				enter(index) {
+					var self = this;
+					var cursorId = index;
+					self.wx_show = cursorId;
+
+				},
+				leave(index) {
+					var self = this;
+					var cursorId1 = index;
+					self.wx_show = cursorId1;
+				},
+				click_leave(index) {
+					var self = this;
+					var cursorId1 = index;
+					self.wx_show = cursorId1;
+				}
+			}
+		});
+	</script>
 </html>

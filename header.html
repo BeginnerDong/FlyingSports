@@ -1,39 +1,39 @@
 
-<div class="bgc-white">
+<div id="header_app" class="bgc-white">
 	<div class="indNavbar w1200 pdtb10 pr">
 		<img class="logo" src="images/logo.png">
 		<div class="list fr">
 			<ul>
-				<li class="on">
+				<li :class="currentUrl=='/index.html'?'on':''">
 					<a href="index.html">首页</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/aboutAx.html'?'on':''">
 					<a href="aboutAx.html">关于翱翔</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/ceeSport.html'?'on':''">
 					<a href="ceeSport.html">高考体育</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/midteSport.html'?'on':''">
 					<a href="midteSport.html">中考体育</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/canteraList.html'?'on':''">
 					<a href="canteraList.html">青训</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/sportsEvtsList.html'?'on':''">
 					<a href="sportsEvtsList.html">体育赛事承办</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/activityList.html'?'on':''">
 					<a href="activityList.html">活动中心</a>
 				</li>
-				<li>
+				<li :class="currentUrl=='/contactUs.html'?'on':''">
 					<a href="contactUs.html">联系我们</a>
 				</li>
-
 			</ul>
 		</div>
 		<div class="navBtn center iconfont">&#xe605;</div>
 	</div>
 </div>
+
 <script type="text/javascript">
 	 $(function(){
 		$(".indNavbar .list li").click(function(){
@@ -50,5 +50,71 @@
 			}
 		});
 	})
+</script>
+
+<script type="text/javascript">
+
+	var header_app = new Vue({
+	    el: '#header_app',
+	    data:function(){
+	        return {
+	        	is_toggle:false,
+				currentUrl:''
+	        }
+	    },
+	    created:function () {
+	        var self = this;
+			var currentUrl = window.base.GetUrlRelativePath();
+		
+			var reg = /\/([^\/]+)\.html/i;
+			if(reg.exec(currentUrl)&&reg.exec(currentUrl)[0]){
+				self.currentUrl = reg.exec(currentUrl)[0];
+			}else{
+				self.currentUrl = '/index.html';
+			};
+			console.log('self.currentUrl',self.currentUrl)
+	        
+			
+	    },
+	    methods: {
+			
+			toggleMenu:function(e){
+			    var self = this;
+			    self.is_toggle = !self.is_toggle;
+				var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+				var navigation = document.getElementById('navigation');
+				if(scrollTop<100){
+					if(self.is_toggle){
+						$("#navigation").css('background','rgb(0, 0, 0,0.6)');
+					}else{
+						$("#navigation").css('background','none');
+					};
+				};	
+			},
+	        
+	    	changeHeaderStyle: function(){
+	    		var self = this;
+	    		var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+	    		var navigation = document.getElementById('navigation');
+					if(scrollTop>=100){
+						$("#navigation").css('position','fixed');
+						$("#navigation").addClass('animated.faster  slideInDown delay-0.1s');
+						console.log('is_toggle-before08',self.is_toggle)
+						if(!self.is_toggle){
+							navigation.addEventListener('animationend', function() {
+								$("#navigation").css('background-color','hsla(0, 0%, 0%, 0.6)');
+							});
+						};
+					}else{          //恢复正常
+						$("#navigation").css('position','absolute');
+						if(!self.is_toggle){
+							$("#navigation").css('background','none');
+							$("#navigation").css('opacity','1');
+						};
+						$("#navigation").removeClass('animated.faster  slideInDown delay-0.1s');
+					}			
+	    	}
+	    }
+	});   
 </script>
 

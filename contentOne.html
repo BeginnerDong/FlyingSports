@@ -1,0 +1,159 @@
+<div id="contentOne_app" style="height: 100%">
+	<div class="bjgayf5 LRListCont" style="min-height: 70%;" >
+		<div class="pdb100"></div>
+		<div class="w1200 oh">
+			<div class="main-leftNav fl">
+				<div class="tit">{{labelData.title}}</div>
+				<div class="selnav oh" >
+					<template v-for="(item,index) in labelData.child">
+						<a :class="currentId==item.id?'on':''" @click="labelChange(item.id,index)" >{{item.title}}</a>
+					</template>
+				</div>
+			</div>
+			<div class="main-rightList fr" >
+				<div class="listContTit center">
+					<span class="tit">{{currentTitle}}</span>
+				</div>
+				<div class="portLisbox1">
+					<ul>
+						<template v-for="item in contentData">
+							<li >
+								<a :href="'./detailPage.html?id='+item.id">
+									<img class="photo" :src="item.mainImg[0]?item.mainImg[0].url:''">
+									<div class="list">
+										<h2>{{item.title}}</h2>
+										<p class="tex2">{{item.description}}</p>
+										<p class="data">{{item.create_time}}</p>
+									</div>
+								</a>
+							</li>	
+						</template>
+					</ul>
+				</div>
+				<div class="all-pages">
+					<span>
+						共:{{allPages}}页
+					</span>
+		        	<span class="no-prev" data-type="back" @click="changePage">上一页</span>
+					<template v-for="item in pageArray">
+						<span :class="item == paginate.currentPage?'current':''" :data-page="item" @click="linkTo">{{item}}</span>
+					</template>
+		            <!-- <a href="#">2</a><a href="#">3</a>&nbsp;...&nbsp;<a href="#">100</a> --><a  class="next" data-type="next" @click="changePage">下一页</a>
+		        </div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+	var contentOne_app = new Vue({
+	    el: '#contentOne_app',
+	    data:function(){
+	        return {
+	        	banner_index:0,
+	        	is_toggle:false,
+				is_show:false,
+				contentData:[],
+				labelData:{},
+				allPages:'',
+				pageArray:[],
+				o_paginate:{
+					count: 0, 
+				    currentPage: 1, 
+				    pagesize:1, 
+				    is_page: true, 
+				},
+				paginate: { 
+				    count: 0, 
+				    currentPage: 1, 
+				    pagesize:1, 
+				    is_page: true, 
+				},
+				currentId:0,
+				currentIndex:0,
+				currentTitle:'',
+				
+
+	        }
+	    },
+	    created:function () {
+	        var self = this;
+	        var currentUrl = window.base.GetUrlRelativePath();
+		
+			var reg = /\/([^\/]+)\.html/i;
+			if(reg.exec(currentUrl)&&reg.exec(currentUrl)[0]){
+				self.currentUrl = reg.exec(currentUrl)[0];
+			}else{
+				self.currentUrl = '/index.html';
+			};
+			//window.base.bus.$emit('from_contentOne',{});
+    		window.base.bus.$on('to_contentOne',(res)=>{	
+	        	this.to_contentOne(res);
+		    });
+	    },
+	    methods: {
+
+	    	labelChange:function(id,index){
+	    		var self = this;
+	    		self.currentId = id;
+	    		self.currentIndex = index;
+	    		self.currentTitle = self.labelData['child'][index].title;
+	    		self.getMainData(true)
+	    	},
+
+	    	to_contentOne:function(res){
+	    		var self = this;
+	    		if(res.labelData){
+	        		self.labelData = res.labelData;
+	        		self.currentId = self.labelData['child'][0].id;
+	        		self.currentTitle = self.labelData['child'][0].title;
+	        		self.getMainData()
+	        	};
+	        	if(res.paginate){
+	        		self.o_paginate = res.paginate;
+	        		self.paginate = self.o_paginate;
+	        	};
+	    	},
+
+			getMainData: function(isNew){
+			    var self = this;
+			    if(isNew){
+			    	self.paginate = self.o_paginate;
+			    	self.contentData = [];
+			    };
+			    var postData = {};
+			    postData.paginate = window.base.cloneForm(self.paginate);
+		    	postData.searchItem = {
+			    	thirdapp_id:2,
+			    	menu_id:self.currentId
+			    };
+			    var callback = function(res) { 
+			        self.contentData.push.apply(self.contentData,res.info.data);
+			        self.paginate['count'] = res.info.total;
+			        window.base.computePageArr(self);
+			    };
+			    window.base.articleList(postData, callback);
+			},
+	        
+	    	changePage:function(e) {
+				var self = this;
+				var dataSet = window.base.getDataSet(e);
+				window.base.changePage(dataSet, self);
+				self.getMainData(true);
+			},
+
+			linkTo:function(e) {
+				var self = this;
+				console.log(e);
+				self.linkPage = window.base.getDataSet(e).page;
+				var res = window.base.linkTo(self);
+				if(res){
+					self.getMainData(true);
+				};	
+			},
+	
+	    }
+	});
+</script>
