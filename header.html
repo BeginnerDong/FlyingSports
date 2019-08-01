@@ -30,7 +30,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="navBtn center iconfont">&#xe605;</div>
+		<div class="navBtn center iconfont" @click="topNavBtn">&#xe605;</div>
 	</div>
 </div>
 
@@ -39,15 +39,6 @@
 		$(".indNavbar .list li").click(function(){
 			console.log(123);
 			$(this).addClass("on").siblings().removeClass("on")
-		});
-
-		// mobile 点击按钮显示导航
-		$(".indNavbar .navBtn").click(function(){
-			if($(".indNavbar .list").css('display')=='none'){
-				$(".indNavbar .list").show()
-			}else{
-				$(".indNavbar .list").hide()
-			}
 		});
 	})
 </script>
@@ -59,6 +50,7 @@
 	    data:function(){
 	        return {
 	        	is_toggle:false,
+				shownav:true,
 				currentUrl:''
 	        }
 	    },
@@ -90,6 +82,13 @@
 						$("#navigation").css('background','none');
 					};
 				};	
+			},
+			topNavBtn:function(){
+				if($(".indNavbar .list").css('display')=='none'){
+					$(".indNavbar .list").show()
+				}else{
+					$(".indNavbar .list").hide()
+				}
 			},
 	        
 	    	changeHeaderStyle: function(){
