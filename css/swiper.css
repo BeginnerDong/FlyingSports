@@ -6,7 +6,6 @@
 	padding-top: 80px;
 	position: absolute;
 	top: 0;
-	
 	transition-duration: 1s;
 	transition-property:padding,width,height,margin,top,left;
 	-moz-transition-property: padding,width,height,margin,top,left; /* Firefox 4 */
