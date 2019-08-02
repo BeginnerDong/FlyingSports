@@ -3,7 +3,15 @@
 }
 
 .swiper_box_item{
-	padding-top: 80px; transition: left 1s;position: absolute;top: 0;
+	padding-top: 80px;
+	position: absolute;
+	top: 0;
+	
+	transition-duration: 1s;
+	transition-property:padding,width,height,margin,top,left;
+	-moz-transition-property: padding,width,height,margin,top,left; /* Firefox 4 */
+	-webkit-transition-property:padding,width,height,margin,top,left; /* Safari 和 Chrome */
+	-o-transition-property:padding,width,height,margin,top,left; /* Opera */
 }
 
 .swiper_box_item_img{

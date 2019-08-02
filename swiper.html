@@ -1,12 +1,10 @@
 <div id="swiper_app">
-	<div class="about-faculylis w1200 pr" >
+	<div class="about-faculylis w1200 pr" style="overflow: hidden;">
 
 		<!-- <div style="width: 90%;margin: 0 auto;overflow: hidden;"> -->
 			<div  class="swiper_box" >
-				<template v-for="item in teacherData">
-
+				<template v-for="(item,index) in teacherData">
 					<div class="swiper_box_item"   :class="{swiper_box_item_on:item.isMiddle}"  :style="'width:'+(1/viewNum*100)+'%;left:'+item.left+'%;opacity:'+item.opacity">
-						
 						<img class="swiper_box_item_img" :class="{on_img:item.isMiddle}" :src="item.mainImg[0]?item.mainImg[0].url:''">
 						<div class="swiper_box_item_box" :class="{on:item.isMiddle}" >
 							<h2 class="swiper_box_item_box_h2">{{item.title}} <em>长安校区学员</em></h2>
@@ -17,12 +15,10 @@
 				</template>
 			</div>
 		<!-- </div> -->
-		
 		<div class="arrowBtn iconfont fs30 white">
 			<span class="pre btn fl" @click="pre">&#xe6bc;</span>
 			<span class="next btn fr" @click="next">&#xe6ab;</span>
 		</div>
-
 	</div>
 </div>
 
@@ -54,30 +50,32 @@
 				},
 				leftX:0,
 				viewNum:5,
-				lock:false
+				lock:false,
+				middleIndex:1,
+				basic_width:0
 	        }
 	    },
 	    created:function () {
 	        var self = this;
-	        
-	        var currentUrl = window.base.GetUrlRelativePath();
-		
-			var reg = /\/([^\/]+)\.html/i;
-			if(reg.exec(currentUrl)&&reg.exec(currentUrl)[0]){
-				self.currentUrl = reg.exec(currentUrl)[0];
-			}else{
-				self.currentUrl = '/index.html';
-			};
-			self.searchItem.title = self.herfIndex[self.currentUrl];
 
 			//window.base.bus.$emit('from_swiper',{});
     		window.base.bus.$on('to_swiper',(res)=>{	
 	        	this.to_swiper(res);
 		    });
-			//self.getMainData()	
+			if(window.screen.width<760){
+				self.viewNum = 3
+			};
+			self.basic_width = window.base.toFixed(1/self.viewNum*100,2);
+			self.left_two = -2*self.basic_width;
+			self.right_two = (1+self.viewNum)*self.basic_width;
+			if(self.viewNum%2!=0){
+				self.middleIndex = (self.viewNum-1)/2;
+			};
+
 	    },
 	    methods: {
 
+	    	
 	    	pre:function(){
 	    		var self = this;
 				if(self.lock){
@@ -86,42 +84,41 @@
 		        	self.lock = true;
 		        };
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left>-40){
+	    			if(self.teacherData[i].left>self.left_two){
 	    				self.teacherData[i].opacity = 1;
 	    				Vue.set(self.teacherData,i,self.teacherData[i])
 	    			};		
 	    		};
 	    		
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left>-40){
+	    			if(self.teacherData[i].left>self.left_two){
 	    				self.teacherData[i].opacity = 1;
-						self.teacherData[i].left -= 20;
+						self.teacherData[i].left -= self.basic_width;
 	    				Vue.set(self.teacherData,i,self.teacherData[i])
 	    			};		
 	    		};
 	    		
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left==-40){
+	    			if(self.teacherData[i].left==self.left_two){
 	    				self.teacherData[i].opacity = 0;
 	    				Vue.set(self.teacherData,i,self.teacherData[i])
 	    			};		
 	    		};
 
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left==40){
+	    			if(self.teacherData[i].left==self.middleIndex*self.basic_width){
+	    				console.log('i',i)
 	    				self.teacherData[i].isMiddle = true;
 	    			}else{
 	    				self.teacherData[i].isMiddle  = false;
 	    			};
-	    			if(self.teacherData[i].left==-40){
+	    			if(self.teacherData[i].left==self.left_two){
 	    				self.teacherData[i].opacity = 0;
-						self.teacherData[i].left = 100;	
+						self.teacherData[i].left = self.viewNum*self.basic_width;	
 	    			};	
 	    			Vue.set(self.teacherData,i,self.teacherData[i])	
 	    		};
 
-
-	    		console.log('self.teacherData-pre',self.teacherData)
 	    		setTimeout(function(){
 	    			self.lock = false;
 	    		},800)
@@ -136,36 +133,36 @@
 		        	self.lock = true;
 		        };
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left<120){
+	    			if(self.teacherData[i].left<self.right_two){
 	    				self.teacherData[i].opacity = 1;
 	    				Vue.set(self.teacherData,i,self.teacherData[i])
 	    			};		
 	    		};
 	    		
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left<120){
+	    			if(self.teacherData[i].left<self.right_two){
 	    				self.teacherData[i].opacity = 1;
-						self.teacherData[i].left += 20;
+						self.teacherData[i].left += self.basic_width;
 	    				Vue.set(self.teacherData,i,self.teacherData[i])
 	    			};		
 	    		};
 	    		
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left==120){
+	    			if(self.teacherData[i].left==self.right_two){
 	    				self.teacherData[i].opacity = 0;
 	    				Vue.set(self.teacherData,i,self.teacherData[i])
 	    			};		
 	    		};
 
 	    		for (var i = 0; i < self.teacherData.length; i++) {
-	    			if(self.teacherData[i].left==40){
+	    			if(self.teacherData[i].left==self.middleIndex*self.basic_width){
 	    				self.teacherData[i].isMiddle = true;
 	    			}else{
 	    				self.teacherData[i].isMiddle  = false;
 	    			};
-	    			if(self.teacherData[i].left==120){
+	    			if(self.teacherData[i].left==self.right_two){
 	    				self.teacherData[i].opacity = 0;
-						self.teacherData[i].left = -20;	
+						self.teacherData[i].left = -self.basic_width;	
 	    			};
 	    			Vue.set(self.teacherData,i,self.teacherData[i])		
 	    		};
@@ -177,41 +174,15 @@
 	    	to_swiper:function(res){
 	    		var self = this;
 	    		for (var i = 0; i < res.mainData.length; i++) {
-	    			res.mainData[i].left = i*20;
+	    			res.mainData[i].left = i*self.basic_width;
 	    			res.mainData[i].opacity = 1;
-	    			if(i==2){
+	    			if(i==self.middleIndex){
 	    				res.mainData[i].isMiddle  = true;
 	    			};
 	    		};
 	    		self.teacherData = res.mainData;
-	    		console.log('self.teacherData',self.teacherData)
 	    	},
 
-
-	    	getMainData: function(id){
-			    var self = this;
-			    var postData = {};
-			    postData.searchItem = window.base.cloneForm(self.searchItem);
-				postData.getAfter = {
-					child: {
-						tableName: 'Label',
-						middleKey: 'id',
-						key: 'parentid',
-						searchItem: {
-							status: 1,
-						},
-						condition: '='
-					},
-				};
-			    var callback = function(res){
-			        if(res.info.data.length>0&&res.info.data[0]['child']){
-						self.bannerData =res.info.data[0]['child'];
-						console.log('self.bannerData',self.bannerData)
-			        };    
-			    };
-			    window.base.labelGet(postData, callback);
-			},
-	        
 	    	changeBanner: function(type) {
 	    		var self = this;
 	    		if(type=='+'){

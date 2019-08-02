@@ -1296,7 +1296,13 @@ window.base = {
 				context[method.tId] = false;
 			},delay);
 		};
-	}　 
+	},
+
+	toFixed:function(num,d){
+        num *=Math.pow(10,d);
+        num = Math.round(num);
+        return num/(Math.pow(10,d));
+    },
 
 }
 
