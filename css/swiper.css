@@ -26,7 +26,7 @@
 }
 
 .swiper_box_item_box_p{
-	font-size: 14px; line-height: 26px; height: 52px; overflow:hidden;text-overflow: ellipsis;-webkit-box-orient:vertical;display: -webkit-box; -webkit-line-clamp:2; margin-bottom: 15px;
+	font-size: 14px; line-height: 24px; max-height: 48px; overflow:hidden;text-overflow: ellipsis;-webkit-box-orient:vertical;display: -webkit-box; -webkit-line-clamp:2; margin-bottom: 15px;
 }
 
 .swiper_box_item_box_a{
@@ -48,7 +48,7 @@
 
 @media screen and ( max-width:750px){ 
 	.swiper_box{ height: 340px;;}
-	.swiper_box_item{ width: 120px!important;}
+	.swiper_box_item{ width: 140px!important;}
 	.swiper_box_item_on{z-index: 5;}
 	.swiper_box_item_box{ padding-top: 15px; margin-top: -15px;}
 	.swiper_box_item_box_h2{ font-size: 18px;}

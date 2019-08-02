@@ -197,8 +197,10 @@ a:link, a:visited {text-decoration: none; outline: none;}
 .all-pages a,.all-pages span{ display:inline-block; margin:0 5px; padding:0 14px; height:32px; vertical-align:middle; white-space:nowrap; text-align:center; font-size:14px; line-height:32px; color:#333; font-family:arial; background:#fff; border:1px solid #e6e6e6; border-radius: 3px;}
 .all-pages a:hover{border:1px solid #005ca1; color:#333;}
 .all-pages .current{ background:#005ca1; color:#fff; border:1px solid #005ca1;}
-.all-pages .next{padding: 0 25px 0 12px;background: #fff url(../images/ibar_sprites.png) no-repeat 62px -462px;}
-.all-pages .prev, .all-pages .no-prev {padding: 0 12px 0 25px;background: #fff url(../images/ibar_sprites.png) no-repeat 10px -440px;}
 
+@media screen and ( max-width:750px){ 
+	.all-pages a,.all-pages span{ padding:0 10px; height:28px;font-size:12px; line-height:28px;}
+	
+}
 
 

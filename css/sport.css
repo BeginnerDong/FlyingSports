@@ -373,7 +373,7 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	footer .ewmBox .lis img{ width: 100px; margin: 0 auto;}
 	footer .ewmBox .lis p{ padding-top: 10px; font-size: 14px;}
 
-	.all-pages{ display: none;}
+	/* .all-pages{ display: none;} */
 
 	/*关于翱翔*/
 	.about-msgimg{ min-height: 536px;}
