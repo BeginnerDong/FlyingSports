@@ -10,7 +10,7 @@
 							<div class="list">
 								<h2>{{item.title}}</h2>
 								<p class="tex2">{{item.description}}</p>
-								<p class="data">{{item.description}}</p>
+								<p class="data">{{item.create_time}}</p>
 							</div>
 						</a>
 					</li>
@@ -85,6 +85,38 @@
 	        <!-- <a href="#">2</a><a href="#">3</a>&nbsp;...&nbsp;<a href="#">100</a> --><a  class="next" data-type="next" @click="changePage">下一页</a>
 	    </div>
 	</div>
+
+	<div class="portLisTwo pdb100" v-if="currentUrl=='/newsList.html'">
+		<div class="w1200">
+			<ul>
+				<template v-for="item in contentData">
+					<li>
+						<a :href="'./detailPage.html?id='+item.id">
+							<img class="pic" :src="item.mainImg[0]?item.mainImg[0].url:''">
+							<div class="infor">
+								<h1 class="tit">{{item.title}}</h1>
+								<p class="tex">{{item.description}}</p>
+							</div>
+						</a>
+					</li>
+				</template>
+			</ul>
+		</div>
+		<div class="all-pages">
+			<span>
+				共:{{allPages}}页
+			</span>
+	    	<span class="no-prev" data-type="back" @click="changePage">上一页</span>
+			<template v-for="item in pageArray">
+				<span :class="item == paginate.currentPage?'current':''" :data-page="item" @click="linkTo">{{item}}</span>
+			</template>
+	        <!-- <a href="#">2</a><a href="#">3</a>&nbsp;...&nbsp;<a href="#">100</a> --><a  class="next" data-type="next" @click="changePage">下一页</a>
+	    </div>
+	</div>
+
+
+
+
 </div>
 
 	
