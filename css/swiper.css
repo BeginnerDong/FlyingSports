@@ -47,13 +47,13 @@
 
 
 @media screen and ( max-width:750px){ 
-	.swiper_box{ height: 340px;;}
+	.swiper_box{ height: 360px;}
 	.swiper_box_item{ width: 140px!important;}
 	.swiper_box_item_on{z-index: 5;}
 	.swiper_box_item_box{ padding-top: 15px; margin-top: -15px;}
-	.swiper_box_item_box_h2{ font-size: 18px;}
+	.swiper_box_item_box_h2{ font-size: 18px; padding-bottom: 5px;margin-bottom: 5px;}
 	.swiper_box_item_box_h2 em{ display: block;width: 100%;;}
-	.swiper_box_item_box_a {width: 70px;height: 30px;  line-height: 30px;border-radius: 3px;border: 1px solid #eee;color: #fff;text-align: center;display: block;margin: 0 auto;font-size: 14px;}
-	.swiper_box_item_box_p{ margin-bottom: 10px;}
+	.swiper_box_item_box_a {width: 70px;height: 28px;  line-height: 28px;border-radius: 3px;border: 1px solid #eee;color: #fff;text-align: center;display: block;margin: 0 auto;font-size: 12px;}
+	.swiper_box_item_box_p{ margin-bottom: 10px; font-size: 12px;line-height: 18px;}
 	
 }

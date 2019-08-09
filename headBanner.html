@@ -1,15 +1,15 @@
 <div id="banner_app" style="">
 	<div class="banner clearfix" v-for="(item,index) in bannerData" v-show="index==banner_index" style="height:100%">
 		<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''"/>
-		<div  class="banner-item" >
-			<!-- <div  class="animated bounceInLeft banner-mainTitle">
+		<!-- <div  class="banner-item" >
+			<div  class="animated bounceInLeft banner-mainTitle">
 				<div  class="banner-title" >{{item.title}}</div>
 				<div  class="banner-small-title">{{item.small_title}}</div>
-			</div> -->
+			</div>
 			<div  class="animated bounceInRight banner-imgIcon">					
 				<img :src="item.iconUrl" />	
 			</div>	
-		</div>	
+		</div> -->	
 	</div>
 	<div class="arrowIon prev" @click="changeBanner('+')">
 		<img src="images/icon-right.png" />
@@ -43,7 +43,7 @@
 					'/activityList.html':'活动中心轮播',
 					'/contactUs.html':'联系我们轮播',
 					'/excellentList.html':'优秀学员轮播',
-					'/newsList.html':'新闻列表轮播',
+					'/newsList.html':'新闻列表轮播'
 				}
 	        }
 	    },

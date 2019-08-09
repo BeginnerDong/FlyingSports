@@ -33,6 +33,13 @@
 
 		<include src="footer.html"></include>
 	</div>
+	<script>
+		$(function(){
+			var $picWidth = $(".portLisTwo li .pic").width();
+			$(".portLisTwo li .pic").css({'height':$picWidth});
+		})
+		
+	</script>
 	<script type="text/javascript">
 		var app = new Vue({
 		    el: '#app',
