@@ -56,9 +56,9 @@
 
 /*校区介绍*/
 .indschool .cont{ min-height: 365px;display: flex; justify-content: space-around;}
-.indschool .cont .left{ width:55%;height: 452px; float: left; font-size: 16px; line-height: 30px; overflow: hidden;padding-right: 20px;box-sizing: border-box;}
-.indschool .cont .right{ width: 45%;height: 452px;float: right; padding-top: 8px;box-sizing: border-box;}
-.indschool .cont .right img{ width: 100%;height: 210px; display: block;}
+.indschool .cont .left{ width:55%;height: 420px; float: left; font-size: 16px; line-height: 30px; overflow: hidden;padding-right: 20px;box-sizing: border-box;}
+.indschool .cont .right{ width: 45%;height: 420px;float: right; padding-top: 8px;box-sizing: border-box;}
+.indschool .cont .right img{ width: 100%;height: 188px; display: block;}
 .indschool .cont .right img:first-child{ margin-bottom: 30px;}
 
 
@@ -70,14 +70,14 @@
 /*我们的优势*/
 .indGoodUs{ padding-bottom: 70px;}
 .indGoodUs .w1200{ min-height: 480px;}
-.indGoodUs li{width:48%; padding: 3%; box-sizing:border-box; height:200px; position: relative; color: #fff; float: left; background: #000; margin:20px 0;  margin-right:2%; }
+.indGoodUs li{width:48%; padding: 4%; box-sizing:border-box; height:200px; position: relative; color: #fff; float: left; background: #000; margin:20px 0;  margin-right:2%; }
 .indGoodUs li:nth-child(2n){ margin-left: 2%; margin-right: 0;}
 .indGoodUs li img{ width: 100%; height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; opacity: 0.7;}
 .indGoodUs li h1{ font-size: 24px; margin-bottom: 20px; position:relative;z-index: 5; line-height: 1;overflow:hidden;  white-space: nowrap; text-overflow: ellipsis; }
 .indGoodUs li p{ font-size: 18px; line-height: 30px; height: 60px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;position:relative;z-index: 5;}
 
 .middleBtn{border-radius: 50%; background: rgba(255,255,255,0.6); position: absolute; top: 50%; left: 50%; transform:translate(-50%,-50%); z-index: 10;padding: 30px; }
-.middleBtn .icon{ width: 148px; height: 148px; border-radius: 50%; border:26px solid #fff;}
+.middleBtn .icon{ width: 110px; height: 110px; border-radius: 50%; border:26px solid #fff;}
 
 /*视频展示*/
 .indVideo{min-height: 288px;}
@@ -86,14 +86,15 @@
 .indVideo li iframe{ display: block;}
 
 /*新闻中心*/
-.indNews{ /* min-height: 376px; */display: flex;justify-content: space-around;align-items: flex-end;}
-.indNews .list{ width: 48%; float: left;}
-.indNews .list:last-child{ float: right;}
+.indNews{ display: flex;  justify-content: space-around;align-items: flex-end;}
+.indNews .list{ width:550px;padding-right: 20px;}
+.indNews .list:last-child{padding-right: 0;padding-left: 20px;}
+.indNews .list .imgbox{ width: 100%; height:230px; overflow: hidden;}
 .indNews .list .tit{ width: 100%;padding: 20px 0; border-bottom: 1px dashed #eee;line-height: 24px; position: relative;padding-left: 20px; font-size: 22px;box-sizing:border-box; margin-bottom: 20px;}
 
 .indNews .list .tit::before{ content: ""; width: 6px; height: 30px; background: #005ca1; position: absolute; left: 0; top: 50%; transform:translate(0,-50%);}
 .indNews .list .more{ color: #666; float: right; font-size: 16px;}
-.indNews .list .imgbox{ width: 100%; height:230px; overflow: hidden;}
+
 .indNews .list .pic{ width: 100%;height: 100%; display: block; margin-bottom: 10px}
 .indNews .list .titLis li{ padding-top: 10px;}
 .indNews .list .titLis li a{display: block; position: relative; padding:0 80px 0 20px; line-height: 30px; height: 30px;overflow:hidden;white-space: nowrap; text-overflow: ellipsis; font-size: 16px;}
@@ -123,8 +124,9 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 /******************  关于翱翔 ********************/
 
 /*校区介绍*/
-.about-msgimg{ min-height: 1140px;}
-.about-msgimg .imgbox img{width: 48%;height: 380px; margin-right: 2%; display: block; float: left; padding-top: 50px;}
+.about-msgimg{ min-height: 960px;}
+.about-msgimg .imgbox{ display: flex; flex-wrap: wrap; justify-content: space-around;}
+.about-msgimg .imgbox img{width: 48%;height:292px; margin-right: 2%; display: block; float: left; margin-top: 50px;}
 .about-msgimg .imgbox img:nth-child(2n){ margin-right: 0; margin-left: 2%;}
 
 
@@ -205,10 +207,10 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 /*********** 体育赛事列表 ***********/
 /*上下图文列表*/
 .portLisTwo{ padding-top: 50px;}
-.portLisTwo ul{display: flex;flex-wrap: wrap;  justify-content: flex-start; min-height: 465px;}
+.portLisTwo ul{display: flex;flex-wrap: wrap; min-height: 465px;}
 .portLisTwo li{ width: 380px;height: 400px;padding: 20px;box-sizing: border-box}
 .portLisTwo li a{ width: 100%; display: block; height: 100%; border:1px solid #d7d7d7;}
-.portLisTwo li .pic{ width: 100%;height: 200px;}
+.portLisTwo li .pic{ width: 100%;height: 224px;}
 .portLisTwo li .infor{ padding:20px; font-size: 14px;}
 .portLisTwo li .infor .tit{ font-size: 20px; height: 30px; line-height: 30px; overflow: hidden;text-overflow:ellipsis; white-space: nowrap; padding-bottom: 10px;}
 .portLisTwo li .infor .tex{ color: #999; line-height: 22px;height:44px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;}
@@ -346,12 +348,16 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	.indVideo ul{margin-left: 0; display: block;}
 	.indVideo li{ width: 100%; margin-left: 0; padding: 0 0; margin-bottom: 15px;}
 	.indVideo li iframe{ width:100%;}
-	/* .indNews{ min-height: 165px;} 
-	.indNews .list{ height: 280px;}*/
+	
+
+	.indNews .list{ width:300px;padding-right:5px;}
+	.indNews .list:last-child{padding-right: 0;padding-left: 5px;}
+	.indNews .list .imgbox{ width: 100%; height:125px; overflow: hidden;}
+	
 	.indNews .list .tit{ padding-left: 12px; font-size: 16px; line-height: 20px; padding: 6px 0 6px 12px; margin-bottom: 10px;}
 	.indNews .list .tit::before{ width: 3px; height: 18px;}
 	.indNews .list .more{ font-size: 14px;}
-	.indNews .list .pic{ padding-bottom: 0;    margin-bottom: 0;}
+	.indNews .list .pic{ padding-bottom: 0; margin-bottom: 0;}
 	.indNews .list .titLis li{ padding-top: 0px;}
 	.indNews .list .titLis li a{ font-size: 14px; padding: 8px 5px 0px 12px;height: auto;line-height: 20px}
 	.indNews .list .titLis li a em{font-size: 12px;width: 100%;position: static; display: block; line-height: 16px;}
@@ -375,7 +381,9 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	/*关于翱翔*/
 	.about-msgimg{ min-height: 536px;}
 	.about-msgimg .msgtex{ font-size:14px; line-height: 24px; }
-	.about-msgimg .imgbox img{padding-top: 15px; height:130px ;}
+	/* .about-msgimg .imgbox{   justify-content: space-around;} */
+	.about-msgimg .imgbox img{width:330px ;height:167px ;margin: 15px 0 0 0;}
+	.about-msgimg .imgbox img:nth-child(2n){margin-left:0 ;}
 
 	.about-faculylis ul{ width: 100%;}
 	/* .about-faculylis .arrowBtn{display: none;} */
@@ -477,14 +485,20 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	.tcPhotobox .r-infor .name{ font-size: 22px;line-height: 40px; padding:20px 0 10px 0;}
 	.tcPhotobox .r-infor .title{ font-size: 16px;}
 	.teacherIntro p{ font-size: 14px; line-height: 24px;padding-bottom: 15px;}
-	.indNews .list .imgbox{height: 180px;}
 }
 
-@media screen and (max-width: 500px){
-	.indNews .list .imgbox{height: 120px;}
-	.portLisTwo ul{justify-content: space-around;justify-content: left;}
-	.portLisTwo li{ width: 160px; height: 240px;}
-	.portLisTwo li .pic{ height: 100px;}
-	
+
+@media screen and ( max-width:500px){ 
+	.about-msgimg .imgbox img{width: 180px; height: 91px;}
 	.newsLisBox .portLisTwo li .pic{ height: 100px;}
+	.indNews .list{ width:200px;padding-right:5px;}
+	.indNews .list:last-child{padding-right: 0;padding-left: 5px;}
+	.indNews .list .imgbox{ width: 100%; height:84px; overflow: hidden;}
+	
+	.portLisTwo ul{ }
+	.portLisTwo li{ width: 172px;height: auto;margin: 0 0 20px 0;padding: 0 5px;box-sizing: border-box;}
+	.portLisTwo li .pic{ width: 100%; height: 112px;}
+	
+	
+	
 }
