@@ -6,7 +6,7 @@
 					<div class="swiper_box_item"   :class="{swiper_box_item_on:item.isMiddle}"  :style="'width:'+(1/viewNum*100)+'%;left:'+item.left+'%;opacity:'+item.opacity">
 						<img class="swiper_box_item_img" :class="{on_img:item.isMiddle}" :src="item.mainImg[0]?item.mainImg[0].url:''">
 						<div class="swiper_box_item_box" :class="{on:item.isMiddle}" >
-							<h2 class="swiper_box_item_box_h2">{{item.title}} <em>长安校区学员</em></h2>
+							<h2 class="swiper_box_item_box_h2">{{item.title}}</h2>
 							<p class="swiper_box_item_box_p">{{item.description}}</p>
 							<div class="center"><a :href="'./teachers.html?id='+item.id" class="swiper_box_item_box_a">了解更多</a></div>
 						</div>

@@ -57,12 +57,12 @@
 				</div>
 				<div class="about-dvlptlis w1200">
 					<ul>
-						<li>
+						<li v-for="item in 发展历程['child']">
 							<em class="yuan"></em>
-							<h1 class="time">2019年6月</h1>
-							<p class="tex">专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。</p>
+							<h1 class="time">{{item.title}}</h1>
+							<p class="tex">{{item.description}}</p>
 						</li>
-						<li>
+						<!-- <li>
 							<em class="yuan"></em>
 							<h1 class="time">2019年6月</h1>
 							<p class="tex">专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。</p>
@@ -81,7 +81,7 @@
 							<em class="yuan"></em>
 							<h1 class="time">2018年1月</h1>
 							<p class="tex">服务产品化定制规范，全程监控专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。中联办也发声明，表示严厉谴责，指这些行径已经完全超出了和平示威的范畴。</p>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -110,24 +110,7 @@
 					</div>
 				</div>
 			</div>
-			<script type="text/javascript">
-				// 校区硬件滑动
-				$(function(){
-				    var swiper = new Swiper('.swiper-container', {
-				      slidesPerView: 4,
-				      spaceBetween: 30,
-					  centeredSlides: true,
-					  observer:true,
-					  observeParents:true,
-					  initialSlide: 1,
-				      pagination: {
-				        el: '.swiper-pagination',
-				        clickable: true,
-				      }
-				    });
-				
-				}); 		
-			</script>
+			
 
 
 			<!-- 教学体系 -->
@@ -145,6 +128,24 @@
 		</div>
  
 	</body>
+	<script type="text/javascript">
+		// 校区硬件滑动
+		$(function(){
+		    var swiper = new Swiper('.swiper-container', {
+		      slidesPerView: 4,
+		      spaceBetween: 30,
+			  centeredSlides: true,
+			  observer:true,
+			  observeParents:true,
+			  initialSlide: 1,
+		      pagination: {
+		        el: '.swiper-pagination',
+		        clickable: true,
+		      }
+		    });
+		
+		}); 		
+	</script>
 <style type="text/css">
 	/* 校区硬件 */
 	.swiper-container { width: 100%;height: 100%;}
@@ -217,7 +218,7 @@
 					},
 					searchItem:{ 
 						thirdapp_id: 2,
-						title:['in',['关于翱翔轮播','校区介绍','校区硬件','教学体系','师资力量']]
+						title:['in',['关于翱翔轮播','校区介绍','校区硬件','教学体系','师资力量二','发展历程']]
 					},
 					banner_info:[
 						{url:'images/new/img.jpg',
@@ -235,12 +236,15 @@
 					校区硬件:{},
 					教学体系:{},
 					关于翱翔轮播:{},
+					发展历程:{},
+					师资力量二:{},
 					teacherData:[]
 		        }
 		    },
 		    created:function () {
 		        var self = this;
 		        window.onload=function(){
+					
 		        	self.getMainData();	 
 		        };
 		    },
@@ -292,7 +296,7 @@
 				    postData.paginate = window.base.cloneForm(self.paginate);
 				    postData.searchItem = {
 				    	thirdapp_id:2,
-				    	menu_id:self['师资力量'].id
+				    	menu_id:self['师资力量二'].id
 				    };
 				    
 
