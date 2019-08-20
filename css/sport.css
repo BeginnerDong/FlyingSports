@@ -10,7 +10,7 @@
 .indNavbar .logo{ width: 86px; height: 100px; display: inline-block; margin-right: 30px;}
 .indNavbar .list{width: 88%;position: absolute;top: 30px;right: 0;}
 .indNavbar .list ul{ width:100%; display: flex;justify-content: space-around;flex-wrap: nowrap;}
-.indNavbar .list li a{ display: block; line-height: 46px; font-size: 22px;padding: 0 8px; padding-bottom: 10px;}
+.indNavbar .list li a{ display: block; line-height: 46px; font-size: 20px;padding: 0 8px; padding-bottom: 10px;}
 .indNavbar .list li.on a{color: #005ca1; position:relative;}
 .indNavbar .list li.on a::after{ content: ""; width: 100%; height: 6px;background:#005ca1; position: absolute; bottom: 0; left: 0;}
 .indNavbar .navBtn{ width: 40px; height: 40px; line-height: 40px; color: #fff; font-size: 30px;position: absolute; right: 10px; top:15px; z-index: 66; display: none;}
