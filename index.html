@@ -222,7 +222,7 @@
 		</div>
 
 		<div class="inndLink center w1200">
-			<span v-for="item in 友情链接['child']">{{item.title}} {{item.url}}</span>	
+			<a class="item" v-for="item in 友情链接['child']" :href="item.url">{{item.title}} {{item.url}}</a>	
 		</div>
 	</div>
 
