@@ -48,11 +48,11 @@
 /*公共标题*/
 
 /*特色课程*/
-.tsekList{ padding-bottom: 60px; min-height:536px;}
+.tsekList{ padding-bottom: 60px; min-height:448px;}
 .tsekList li{ width: 20.3%; padding:30px 6.5%; float: left; text-align: center; /*  height: 208px; */}
 .tsekList li .icon{ width: 80px; height: 80px; display: block; margin: 0 auto;}
-.tsekList li h1{ font-size: 24px; line-height: 30px; padding:30px 0 20px 0;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
-.tsekList li p{ color: #666; font-size: 16px; line-height: 24px;height: 48px; overflow: hidden;}
+.tsekList li h1{ font-size: 20px; line-height: 30px; padding:20px 0 10px 0;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tsekList li p{ color: #666; font-size: 16px; line-height: 24px; overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
 
 /*校区介绍*/
 .indschool .cont{ min-height: 365px;display: flex; justify-content: space-around;}
@@ -73,8 +73,8 @@
 .indGoodUs li{width:48%; padding: 4%; box-sizing:border-box; height:200px; position: relative; color: #fff; float: left; background: #000; margin:20px 0;  margin-right:2%; }
 .indGoodUs li:nth-child(2n){ margin-left: 2%; margin-right: 0;}
 .indGoodUs li img{ width: 100%; height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; opacity: 0.7;}
-.indGoodUs li h1{ font-size: 24px; margin-bottom: 20px; position:relative;z-index: 5; line-height: 1;overflow:hidden;  white-space: nowrap; text-overflow: ellipsis; }
-.indGoodUs li p{ font-size: 18px; line-height: 30px; height: 60px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;position:relative;z-index: 5;}
+.indGoodUs li h1{font-size:18px ;  margin-bottom: 20px; position:relative;z-index: 5; line-height: 1;overflow:hidden;  white-space: nowrap; text-overflow: ellipsis; }
+.indGoodUs li p{font-size:14px ; line-height: 24px; height: 60px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;position:relative;z-index: 5;}
 
 .middleBtn{border-radius: 50%; background: rgba(255,255,255,0.6); position: absolute; top: 50%; left: 50%; transform:translate(-50%,-50%); z-index: 10;padding: 30px; }
 .middleBtn .icon{ width: 110px; height: 110px; border-radius: 50%; border:26px solid #fff;}
@@ -106,26 +106,27 @@
 
 /*友情链接*/
 .inndLink{ display: flex;flex-wrap: wrap;  justify-content:space-around;}
-.inndLink .item{ width: 100%; line-height: 34px; display: block; font-size: 18px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;padding: 10px 0;box-sizing:border-box;}
+.inndLink .item{ width: 50%; line-height: 34px; display: block; font-size: 18px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;padding: 10px 3%;box-sizing:border-box;}
 .inndLink .item:hover{color: #005ca1;}
-footer{background: #164161; padding: 100px 0;}
-footer .linkNav a{padding: 0 15px;border-right:1px solid #fff; color: #fff; font-size:22px; line-height: 22px;line-height: 23px; display: inline-block;}
+footer{background: #164161; padding:80px 0 20px 0;}
+footer .linkNav a{padding: 0 15px;border-right:1px solid #fff; color: #fff; font-size:18px; line-height: 22px;line-height: 22px; display: inline-block;}
 footer .linkNav a:last-child{ border-right: none;}
-footer .logo{width: 140px; display: block; margin-right: 60px;}
-footer .underCnt{ padding-top: 80px;}
+footer .logo{width: 110px; display: block; margin-right: 30px;}
+footer .underCnt{ padding-top: 50px;}
 footer .underCnt .phone{ width: 480px;}
-footer .underCnt .phone div{margin-top: 30px; color: #fff; position: relative;padding-left: 35px;}
+footer .underCnt .phone div{margin-top: 20px; color: #fff; position: relative;padding-left: 35px;}
 footer .underCnt .phone div i{ display: inline-block;vertical-align: middle;font-size: 24px; position: absolute;top: 0px;left: 0;}
 footer .underCnt .phone div em{ display: inline-block;font-size: 16px; line-height: 26px;}
 footer .ewmBox .lis{ float: left; margin-left: 50px;}
-footer .ewmBox .lis img{ width: 150px; height: auto; display: block;}
-footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-height: 1}
-
-
+footer .ewmBox .lis img{ width: 120px; height: auto; display: block;}
+footer .ewmBox .lis p{ color: #fff; font-size: 16px; padding-top: 20px; line-height: 1}
+footer .copyright{ text-align: center; padding-top:20px;border-top:1px solid #305571; margin-top: 50px;}
+footer .copyright a{ font-size: 14px; color: #ddd;}
+footer .copyright a:hover{color: #fff;}
 /******************  关于翱翔 ********************/
 
 /*校区介绍*/
-.about-msgimg{ min-height: 960px;}
+/* .about-msgimg{ min-height: 960px;} */
 .about-msgimg .imgbox{ display: flex; flex-wrap: wrap; justify-content: space-around;}
 .about-msgimg .imgbox img{width: 48%;height:292px; margin-right: 2%; display: block; float: left; margin-top: 50px;}
 .about-msgimg .imgbox img:nth-child(2n){ margin-right: 0; margin-left: 2%;}
@@ -161,9 +162,9 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 
 /*校区硬件*/
 .about-box4{min-height: 220px;}
-.about-box4 ul{display: flex;justify-content: left;flex-wrap: nowrap;margin-left: -190px;}
-.about-box4 li{padding:0 30px;}
-.about-box4 li img{ width: 330px; height: 220px; display: block;}
+.about-box4 ul{display: flex;justify-content: flex-start;flex-wrap: nowrap; width: min-content;}
+.about-box4 li{width:330px; height: 220px;background: none;}
+.about-box4 li img{ width: 100%; height:100%; display: block;}
 
 /*列表左侧导航*/
 .main-leftNav{ width: 20%; border:1px solid #bdbdbd; box-sizing:border-box; padding-bottom: 40px; margin-bottom: 50px;}
@@ -220,13 +221,14 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 .portLisTwo li:hover a{ background: #f5f5f5; }
 
 /*联系我们信息*/
-.call_adds .lis{ width: 50%; display: block; position: relative; line-height: 50px;font-size: 20px;}
-.call_adds .lis .icon{ width: 50px; height: 50px; border-radius: 50%; display: inline-block;vertical-align: middle; margin-right: 20px;}
+.call_adds{ padding: 0 10%;}
+.call_adds .lis{ width:100%; display: block; position: relative; line-height:35px;font-size: 18px; margin-bottom:20px;padding-left: 45px; position: relative; text-align: left;}
+.call_adds .lis .icon{ width: 30px; height: 30px; border-radius: 50%; display: block; position: absolute; top: 3px;left: 0;}
 
 .writeMsgbox{ padding: 50px 0;}
 .writeMsgbox li{ width: 40%; padding: 15px 20px 15px 100px;background: #f5f5f5;box-sizing:border-box; margin-top: 30px; border-radius: 5px; position: relative;}
-.writeMsgbox li p{position: absolute;left: 15px; top: 15px; width: 72px; text-align: right; color: #666;}
-.writeMsgbox li input{ background: none; line-height: 24px; width: 100%;box-sizing:border-box;}
+.writeMsgbox li p{position: absolute;left: 15px; top: 15px; width: 72px; text-align: right; color: #666; font-size: 14px;}
+.writeMsgbox li input{ background: none; line-height: 24px; width: 100%;box-sizing:border-box; font-size: 14px;}
 .writeMsgbox .okBtn{ width: 80%; line-height: 50px; display: block; }
 
 
@@ -279,6 +281,7 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	.about-box4 li{ padding: 0 10px;}
 
 	.portLisTwo li{ width: 50%;padding: 15px;}
+	
 
 	/*诚聘英才*/
 	.joinUsBox .l-Pic{ width: 40%;}
@@ -339,7 +342,7 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	.indGoodUs .w1200{ min-height: 255px;}
 	.indGoodUs ul{ display: flex; justify-content: space-around;flex-wrap: wrap;}
 	.indGoodUs li{margin: 5px 0; height: auto;}
-	.indGoodUs li h1 {font-size: 16px;margin-bottom: 10px; padding-top: 10px; }
+	.indGoodUs li h1 {font-size: 16px;margin-bottom: 10px; padding-top: 5px; }
 	.indGoodUs li p { font-size: 12px;line-height: 20px; height: 60px;    -webkit-line-clamp: 3;}
 
 	.middleBtn{ padding: 12px;}
@@ -363,9 +366,11 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	.indNews .list .titLis li a{ font-size: 14px; padding: 8px 5px 0px 12px;height: auto;line-height: 20px}
 	.indNews .list .titLis li a em{font-size: 12px;width: 100%;position: static; display: block; line-height: 16px;}
 
-	.inndLink span{ width: 100%; line-height: 30px; font-size: 14px; padding: 0;}
+	.inndLink .item{ width: 100%; font-size: 14px;padding: 0 ;}
+	/* .inndLink span{ width: 100%; line-height: 30px; font-size: 14px; padding: 0;} */
 	
 	footer{ padding:20px 0;}
+	footer .copyright{ margin-top: 20px;}
 	footer .underCnt{ padding-top: 0;}
 	footer .linkNav{ display: none;}
 	footer .logo{ width: 56px; margin-right: 0; margin-left: 2%; display: none;}
@@ -405,9 +410,9 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 
 	.about-box4{min-height: 107px;}
 	.about-box4 ul{ margin-left: 0;}
-	.about-box4 li{ padding: 0 10px;}
-	.about-box4 li:first-child{ margin-left: -100px;}
-	.about-box4 li img{ width: 160px; height: 107px;}
+	.about-box4 li{ width: 160px; height: 107px;}
+	/* .about-box4 li:first-child{ margin-left: -100px;}
+	.about-box4 li img{ width: 160px; height: 107px;} */
 
 	.detailePag .topTit{padding: 30px 0 20px 0;}
 	.detailePag .topTit .title{ font-size: 20px; line-height: 30px; padding-bottom: 10px;}
@@ -424,9 +429,9 @@ footer .ewmBox .lis p{ color: #fff; font-size: 24px; padding-top: 20px; line-hei
 	.portLisTwo li .infor .more{ font-size: 12px;}
 
 	
-
-	.call_adds .lis{ width: 100%;line-height: 50px;font-size: 16px;}
-	.call_adds .lis .icon{ width: 30px; height: 30px; margin-right: 15px;}
+	.call_adds{padding: 0 4%;}
+	.call_adds .lis{ width: 100%;line-height: 24px;font-size: 14px;padding-left: 30px;}
+	.call_adds .lis .icon{ width: 20px; height: 20px;}
 	.writeMsgbox{padding: 10px 0 30px 0;}
 	.writeMsgbox li{ width: 100%;padding: 10px 20px 10px 100px;margin-top: 20px;}
 	.writeMsgbox li p{ top: 10px;}

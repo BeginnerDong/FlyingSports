@@ -38,7 +38,7 @@
 						<p class="fs20 gray6">campus is introduced</p>
 					</div>
 					<div class="w1200 about-msgimg">
-						<p class="msgtex line30 center  fs16">{{校区介绍['description']}}</p>
+						<p class="msgtex line30 center  fs16" style="text-indent: 2em;">{{校区介绍['description']}}</p>
 
 						<div class="imgbox oh pdb100">
 							<img v-for="item in 校区介绍['mainImg']" :src="item.url">
@@ -62,26 +62,6 @@
 							<h1 class="time">{{item.title}}</h1>
 							<p class="tex">{{item.description}}</p>
 						</li>
-						<!-- <li>
-							<em class="yuan"></em>
-							<h1 class="time">2019年6月</h1>
-							<p class="tex">专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。</p>
-						</li>
-						<li>
-							<em class="yuan"></em>
-							<h1 class="time">2019年1月</h1>
-							<p class="tex">严谨把控服务流程，即时准确保障业务安全进行内容专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。</p>
-						</li>
-						<li>
-							<em class="yuan"></em>
-							<h1 class="time">2018年8月</h1>
-							<p class="tex">专属纯粹一站式服务专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。专属纯粹一站式服务专属纯粹一站式服务专属纯粹一站式服务，这就是教育的根本所在。</p>
-						</li>
-						<li>
-							<em class="yuan"></em>
-							<h1 class="time">2018年1月</h1>
-							<p class="tex">服务产品化定制规范，全程监控专业一对一即时金牌服务客户，快捷高效，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。中联办也发声明，表示严厉谴责，指这些行径已经完全超出了和平示威的范畴。</p>
-						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -99,7 +79,7 @@
 			<!-- 校区硬件 -->
 			<div class="about-box4  bjgayf5">
 				<div class="pubTitle center">
-					<h1 class="fs30 mgb20">校区硬件</h1>
+					<h1 class="fs30 mgb20">校区环境</h1>
 					<p class="fs20 gray6">faculy</p>
 				</div>
 				<div class="about-box4 pdb100 w1200 oh">
@@ -120,7 +100,7 @@
 					<p class="fs20 gray6">Teaching system</p>
 				</div>
 				<div class="w1200 pdb100 ">
-					<p class="msgtex line30 center  fs16">{{教学体系['description']}}</p>
+					<p class="msgtex line30 center  fs16" style="text-indent: 2em;">{{教学体系['description']}}</p>
 				</div>
 			</div>
 
@@ -132,8 +112,8 @@
 		// 校区硬件滑动
 		$(function(){
 		    var swiper = new Swiper('.swiper-container', {
-		      slidesPerView: 4,
-		      spaceBetween: 30,
+		      slidesPerView :'auto',
+		      // spaceBetween: 30,
 			  centeredSlides: true,
 			  observer:true,
 			  observeParents:true,
@@ -149,7 +129,7 @@
 <style type="text/css">
 	/* 校区硬件 */
 	.swiper-container { width: 100%;height: 100%;}
-	.swiper-slide {width: 30%; text-align: center; font-size: 18px; background: #fff;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;transition: 300ms;}
+	.swiper-slide {width: 30%; text-align: center; font-size: 18px; background: #fff;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;transition: 300ms; }
 	.swiper-slide:not(.swiper-slide-active){transform: scale(0.8);}
 	.swiper-slide img{ width: 100%; height: 100%;}
 	
