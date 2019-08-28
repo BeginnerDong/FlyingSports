@@ -257,11 +257,13 @@
 		$(function() {
 			var swiper = new Swiper('.swiper-container', {
 				slidesPerView: 5,
+				slidesPerGroup : 1,
 				spaceBetween: 30,
+				slidesOffsetAfter : 500,
 				centeredSlides: true,
 				observer: true,
 				observeParents: true,
-				initialSlide: 1,
+				initialSlide: 2,
 				pagination: {
 					el: '.swiper-pagination',
 					clickable: true,
