@@ -1,0 +1,71 @@
+<div id="consult_app" class="kefubtn">
+	<div v-if="consult_app_isShow" v-for="item in consult_app_qrImg" style="text-align: center;">
+		<img class="consult_app_qr" :src="item.url" alt="">
+	</div>
+	
+	<img style="width: 100%" @click="qrShow" src="images/img0.png" alt="">
+</div>
+<script type="text/javascript">
+
+	var consult_app = new Vue({
+	    el: '#consult_app',
+	    data:function(){
+	        return {
+	        	is_toggle:false,
+				consult_app_qrImg:[],
+				address:'',
+				phone:'',
+				consult_app_isShow:false
+	        }
+	    },
+	    created:function () {
+	        var self = this;
+			self.getMainData()
+	    },
+	    methods: {
+			qrShow(){
+				const self = this;
+				self.consult_app_isShow = !self.consult_app_isShow;
+			},
+			getMainData: function(id) {
+				var self = this;
+				var postData = {};
+				postData.searchItem = {
+					thirdapp_id:2,
+					title:'联系我们'
+				};
+				postData.getAfter = {
+					child: {
+						tableName: 'Label',
+						middleKey: 'id',
+						key: 'parentid',
+						searchItem: {
+							status: 1,
+						},
+						condition: '='
+					},
+				};
+
+				var callback = (res) => {
+					console.log('getMainData', res);
+					self.mainData = res.info.data[0];
+					for (var i = self.mainData['child'].length - 1; i >= 0; i--) {
+						
+						if(self.mainData['child'][i].title=="地址"){
+							self.address = self.mainData['child'][i].description
+						};
+						if(self.mainData['child'][i].title=="电话"){
+							self.phone = self.mainData['child'][i].description
+						};
+						if(self.mainData['child'][i].title=="二维码"){
+							self.consult_app_qrImg = self.mainData['child'][i].mainImg
+						};
+					}
+				};
+				window.base.labelGet(postData, callback);
+			},
+	        
+	    	
+	    }
+	});   
+</script>
