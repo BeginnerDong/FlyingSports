@@ -1,5 +1,5 @@
 <div id="consult_app" class="kefubtn">
-	<div v-if="consult_app_isShow" v-for="item in consult_app_qrImg" style="text-align: center;">
+	<div v-if="consult_app_isShow" v-for="item in consult_qrImg" style="text-align: center;">
 		<img class="consult_app_qr" :src="item.url" alt="">
 	</div>
 	
@@ -13,6 +13,7 @@
 	        return {
 	        	is_toggle:false,
 				consult_app_qrImg:[],
+				consult_qrImg:[],
 				address:'',
 				phone:'',
 				consult_app_isShow:false
@@ -59,6 +60,9 @@
 						};
 						if(self.mainData['child'][i].title=="二维码"){
 							self.consult_app_qrImg = self.mainData['child'][i].mainImg
+						};
+						if(self.mainData['child'][i].title=="咨询二维码"){
+							self.consult_qrImg = self.mainData['child'][i].mainImg
 						};
 					}
 				};

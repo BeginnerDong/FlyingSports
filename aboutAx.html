@@ -100,7 +100,8 @@
 					<p class="fs20 gray6">Teaching system</p>
 				</div>
 				<div class="w1200 pdb100 ">
-					<p class="msgtex line30 center  fs16" style="text-indent: 2em;">{{教学体系['description']}}</p>
+	
+					<img  :src="教学体系['mainImg']&&教学体系['mainImg'][0]?教学体系['mainImg'][0].url:''" style="width: 100%;"> 
 				</div>
 			</div>
 

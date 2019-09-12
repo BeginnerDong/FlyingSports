@@ -13,11 +13,19 @@
 			<img class="logo fl" src="images/logo-wzi.png">
 			<div class="phone fl">
 				<!-- <div><i class="iconfont">&#xe6ad;</i><em>{{phone}}</em></div> -->
-				<div><i class="iconfont">&#xe71f;</i><em>{{phone}}</em></div>
+				<div><i class="iconfont">&#xe71f;</i>
+				<div  v-for="item in phoneData.child" style="padding-left: 0px;">
+					<em>{{item.title}}</em>
+					<em>{{item.description}}</em>
+				</div>
+				
+				</div>
 				<div><i class="iconfont">&#xe6ad;</i><em>{{address}}</em></div>
 			</div>
 			<div class="ewmBox fr center">
-				<div class="lis" v-for="item in qrImg"><img :src="item.url"><p>客服二维码</p></div>	
+				<div class="lis" v-for="item in qrData.child"><img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''">
+				<p>{{item.title}}</p>
+				</div>	
 			</div>
 		</div>
 		<div class="center copyright"><a href="http://beian.miit.gov.cn/">陕ICP备19015535号-1</a></div>
@@ -32,16 +40,70 @@
 	        	is_toggle:false,
 				qrImg:[],
 				address:'',
-				phone:''
+				phone:'',
+				qrData:[],
+				phoneData:[]
 	        }
 	    },
 	    created:function () {
 	        var self = this;
-			self.getMainData()
-	        
-			
+			self.getMainData();
+	        self.getQrData();
+			self.getPhoneData()
 	    },
 	    methods: {
+			
+			getPhoneData(id) {
+				var self = this;
+				var postData = {};
+				postData.searchItem = {
+					thirdapp_id:2,
+					title:'电话'
+				};
+				postData.getAfter = {
+					child: {
+						tableName: 'Label',
+						middleKey: 'id',
+						key: 'parentid',
+						searchItem: {
+							status: 1,
+						},
+						condition: '='
+					},
+				};
+			
+				var callback = (res) => {
+					self.phoneData = res.info.data[0];
+					
+				};
+				window.base.labelGet(postData, callback);
+			},
+			
+			getQrData(id) {
+				var self = this;
+				var postData = {};
+				postData.searchItem = {
+					thirdapp_id:2,
+					title:'二维码'
+				};
+				postData.getAfter = {
+					child: {
+						tableName: 'Label',
+						middleKey: 'id',
+						key: 'parentid',
+						searchItem: {
+							status: 1,
+						},
+						condition: '='
+					},
+				};
+			
+				var callback = (res) => {
+					self.qrData = res.info.data[0];
+					
+				};
+				window.base.labelGet(postData, callback);
+			},
 			
 			getMainData: function(id) {
 				var self = this;
@@ -70,14 +132,8 @@
 						if(self.mainData['child'][i].title=="地址"){
 							self.address = self.mainData['child'][i].description
 						};
-						if(self.mainData['child'][i].title=="电话"){
-							self.phone = self.mainData['child'][i].description
-						};
-						if(self.mainData['child'][i].title=="二维码"){
-							self.qrImg = self.mainData['child'][i].mainImg
-						};
+					
 					}
-
 				};
 				window.base.labelGet(postData, callback);
 			},

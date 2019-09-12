@@ -30,7 +30,7 @@
 				<div class="tcbj"></div>
 				<div class="w1200">
 					<div class="tcPhotobox oh pdb100">
-						<img class="l-pic fl" src="images/about-img2.jpg">
+						<img class="l-pic fl" :src="mainData.mainImg&&mainData.mainImg[0]?mainData.mainImg[0].url:''">
 						<div class="r-infor fl">
 							<h1 class="name">{{mainData.title}}</h1>
 							<p class="title">教师</p>
